@@ -19,8 +19,17 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
-    - name : Compile Maven
-      run : mvn -B compile --file pom.xml
+    - name : Maven Clean
+      run : mvn -B clean --file pom.xml
       
-    - name: Build with Maven
+    - name : Maven Validate
+      run : mvn -B validate --file pom.xml
+      
+    - name : Maven Compile
+      run : mvn -B compile --file pom.xml
+    
+    - name : Maven Test
+      run : mvn -B test --file pom.xml
+      
+    - name: Maven - Package
       run: mvn -B package --file pom.xml
