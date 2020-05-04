@@ -18,9 +18,6 @@ jobs:
         java-version: 13.0.1
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
-
-    - name : Maven Clean
-      run : mvn -B clean --file pom.xml
       
     - name : Maven Validate
       run : mvn -B validate --file pom.xml
@@ -33,3 +30,6 @@ jobs:
       
     - name: Maven - Package
       run: mvn -B package --file pom.xml
+    
+    - name: Maven Deploy
+      run: mvn deploy -Dregistry=https://maven.pkg.github.com/kudoabhijeet -Dtoken=GH_TOKEN
