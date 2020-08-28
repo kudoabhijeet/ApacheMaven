@@ -31,7 +31,7 @@ jobs:
     - name: Maven - Package
       run: mvn -B package --file pom.xml
     
-    - name: Maven Deploy
-      run: mvn deploy -B deploy
-      env:
-          GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+#     - name: Maven Deploy
+#       run: mvn deploy -B deploy
+#       env:
+#           GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
